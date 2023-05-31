@@ -9,6 +9,8 @@ def directionCalc(pathValue, direction):
             direction.append('D')
         elif pathValue[i] == -5:
             direction.append('U')
+    
+    print(direction)
 
 #모빌리티에서 GCS로 넘겨줄 행동 추출
 def actionCalc(action, direction, path_length,):
@@ -57,25 +59,27 @@ def actionCalc(action, direction, path_length,):
             else:
                 action.append("ER")
 
-    action.append('GO')
+    # action.append('GO')
     print(action)
 
 #모빌리티가 사용할 행동
 def mobilActionCalc(mAction, direction, path_length,):
     mAction.append('GO')
-    
+
     for i in range(path_length - 2):
         a = direction[i]
         b = direction[i+1]
 
-        mAction.append('GO')
+        # mAction.append('GO')
         if (a == 'D'):
             if(b == 'D'):
                 mAction.append('GO')
             elif(b == 'R'):
                 mAction.append('TL')
+                mAction.append('GO')
             elif(b == 'L'):
                 mAction.append('TR')
+                mAction.append('GO')
             else:
                 mAction.append("ER")
 
@@ -84,8 +88,10 @@ def mobilActionCalc(mAction, direction, path_length,):
                 mAction.append('GO')
             elif(b == 'L'):
                 mAction.append('TL')
+                mAction.append('GO')
             elif(b == 'R'):
                 mAction.append('TR')
+                mAction.append('GO')
             else:
                 mAction.append("ER")
 
@@ -94,8 +100,10 @@ def mobilActionCalc(mAction, direction, path_length,):
                 mAction.append('GO')
             elif(b == 'U'):
                 mAction.append('TL')
+                mAction.append('GO')
             elif(b == 'D'):
                 mAction.append('TR')
+                mAction.append('GO')
             else:
                 mAction.append("ER")
 
@@ -104,10 +112,11 @@ def mobilActionCalc(mAction, direction, path_length,):
                 mAction.append('GO')
             elif(b == 'D'):
                 mAction.append('TL')
+                mAction.append('GO')
             elif(b == 'U'):
                 mAction.append('TR')
+                mAction.append('GO')
             else:
                 mAction.append("ER")
 
-    mAction.append('GO')
     print(mAction)

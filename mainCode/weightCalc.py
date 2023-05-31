@@ -1,17 +1,33 @@
 #GCS
-def weightCalc(node, action, path):
+
+def weightCalc(gcsGraph, action, path):
     #행동에 따른 노드 가중치 부여
     for i in range(len(action)):
         x = path[i]
-        y = x // 5
-        z = x % 5
+        y = path[i + 1]
 
         if(action[i] == 'GO'):
-            node[i][y][z] = 4
+            gcsGraph[x][y] += 4
         elif(action[i] == 'TL' or action[i] == 'TR'):
-            node[i][y][z] = 5
+            gcsGraph[x][y] += 5
         elif(action[i] == 'ER'):
-            node[i][y][z] = 10
+            gcsGraph[x][y] += 10
 
-        print("노드정보: ", path[i], "가중치: ", node[i][y][z])
-        print(node[i])
+        print("시작노드정보: ", path[i], "도착노드정보: ", path[i + 1], "가중치: ", gcsGraph[x][y])
+
+    print(gcsGraph)
+
+def weightReset(gcsGraph, action, path):
+    #행동에 따른 노드 가중치 리셋
+    for i in range(len(action) - 1):
+        x = path[i]
+        y = path[i + 1]
+
+        if(action[i] == 'GO'):
+            gcsGraph[x][y] -= 4
+        elif(action[i] == 'TL' or action[i] == 'TR'):
+            gcsGraph[x][y] -= 5
+        elif(action[i] == 'ER'):
+            gcsGraph[x][y] -= 10
+
+    print(gcsGraph)
