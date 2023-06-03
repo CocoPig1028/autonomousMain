@@ -9,17 +9,3 @@ def rightAction():
 
 def stopAction():
     print("Stop")
-
-def moveMain(mAction):
-    for i in range(len(mAction)):
-        if(mAction[i] == 'GO'):
-            goAction()
-
-        elif(mAction[i] == 'TL'):
-            leftAction()
-
-        elif(mAction[i] == 'TR'):
-            rightAction()
-
-        else:
-            stopAction()

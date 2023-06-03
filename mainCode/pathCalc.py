@@ -65,6 +65,7 @@ def actionCalc(action, direction, path_length,):
 #모빌리티가 사용할 행동
 def mobilActionCalc(mAction, direction, path_length,):
     mAction.append('GO')
+    mAction.append('GO')
 
     for i in range(path_length - 2):
         a = direction[i]
@@ -118,5 +119,6 @@ def mobilActionCalc(mAction, direction, path_length,):
                 mAction.append('GO')
             else:
                 mAction.append("ER")
+        mAction.append('GO')
 
     print(mAction)

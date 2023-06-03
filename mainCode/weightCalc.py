@@ -19,7 +19,7 @@ def weightCalc(gcsGraph, action, path):
 
 def weightReset(gcsGraph, action, path):
     #행동에 따른 노드 가중치 리셋
-    for i in range(len(action) - 1):
+    for i in range(len(action)):
         x = path[i]
         y = path[i + 1]
 
