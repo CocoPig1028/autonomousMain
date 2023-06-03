@@ -26,14 +26,14 @@ gcsGraph = {
         21 : {16 : 0},
         22 : {19 : 0},
         23 : {18 : 0}
-    }
+    } # 기준노드 : {연결 가능한 노드: 가중치, 연결 가능한 노드: 가중치...}
 
 #경로에 필요한 배열들
-path = []
-pathValue = []
-direction = []
-action = []
-mAction = []
+path = [] #경로
+pathValue = [] #경로 간 수학적 계산 배열
+direction = [] #방향
+action = [] #기본 행동
+mAction = [] #모빌리티용 세부 행동
 
 option = 0 #while문 내의 수행 조건
 nodeCount = 0 #node의 참조 배열
@@ -59,7 +59,7 @@ while True:
 
         if start != 0 and curr != 0: #명령을 받는 것을 계속 반복하여 기다릴지 아니면 행동을 할지 선택해주는 조건문
             option = 1
-        time.sleep(1)
+            time.sleep(1)
 
     else:
         path = pathExtraction.pathExtraction(gcsGraph, start, curr)
@@ -88,7 +88,6 @@ while True:
                     
                 if errorCode == 1:
                     print("Detected Obstacle")
-                    move.stopAction()
                     move.goBackNeutral()
                     move.neutral()
 #------------------------------------------------------------------현재 상황 송신, 노드 사용 불가능(그 노드(comeOut) 가중치 100으로 올려주기)------------------------------------------------------------------
@@ -96,14 +95,12 @@ while True:
 
                 elif errorCode == 2:
                     print("Another Mobility is in Next Node")
-                    move.stopAction()
                     move.neutral()
                     move.goBackNeutral()
 #------------------------------------------------------------------현재 상황 송신------------------------------------------------------------------
 
                 elif errorCode == 3:
                     print("Path Error")
-                    move.stopAction()
                     move.goBackNeutral()
                     move.neutral()
 
