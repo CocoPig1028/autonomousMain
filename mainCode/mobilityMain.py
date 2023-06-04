@@ -74,6 +74,7 @@ while True:
         pathCalc.directionCalc(pathValue, direction) #좌표를 기준으로 위, 아래, 좌, 우의 움직임 추출
         pathCalc.actionCalc(action, direction, path_length) #direction의 배열을 이용하여 기초 행동 추출
         pathCalc.mobilActionCalc(mAction, action, errorCode) # #direction의 배열을 이용하여 모빌리티에서 사용할 행동 추출
+#-----------------------------------------------------action[], path[], 송신---------------------------------------------------
 
         print("행동실행")
         for i in range(len(mAction)): #노드 정보와 행동을 위한 유한(행동 크기)루프
