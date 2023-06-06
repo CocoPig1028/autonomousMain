@@ -35,13 +35,14 @@ direction = [] #방향
 action = [] #기본 행동
 mAction = [] #모빌리티용 세부 행동
 
+comeOut = 0 #현재 혹은 출발한 노드
+comeIn = 0 #나중 혹은 회전시 현재 노드
+
 option = 0 #while문 내의 수행 조건
 nodeCount = 0 #node의 참조 배열
 moveCount = 0 #행동의 참조 배열
 goCount = 0 #go가 나온 횟수
 errorCode = 0 #장애물 등 여러 상황에 중지 시키기 위한 에러
-comeOut = 0 #현재 혹은 출발한 노드
-comeIn = 0 #나중 혹은 회전시 현재 노드
 
 while True:
     if option == 0:
